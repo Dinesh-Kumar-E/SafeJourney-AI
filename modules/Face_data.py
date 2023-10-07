@@ -1,9 +1,10 @@
 import cv2
 import dlib
 import numpy as np
+import Get_weights
 
 detector = dlib.get_frontal_face_detector()
-predictor = dlib.shape_predictor(r"D:\Dinesh-Kumar\Downloads\shape_predictor_68_face_landmarks.dat")
+predictor = dlib.shape_predictor(Get_weights.name("shape_predictor_68_face_landmarks.dat"))
 
 cap = cv2.VideoCapture(0)  
 
@@ -67,5 +68,5 @@ def EAR_MAR():
 
         # if cv2.waitKey(1) & 0xFF == ord('q'):
         #     break
-            avg = (left_ear+right_ear)/2.0
-            return (avg, mar, frame)
+            avg_ear = (left_ear+right_ear)/2.0
+            return (avg_ear, mar, frame)

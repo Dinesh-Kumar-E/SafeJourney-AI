@@ -8,6 +8,7 @@ import plotly.graph_objs as go
 import sys
 sys.path.append("modules")
 import Face_data
+import predictor
 
 def log(content):
     with open("logs\log.txt", "a") as file:
@@ -17,51 +18,56 @@ def ear_mar():
     x = Face_data.EAR_MAR()
     return x[0], x[1]
 
-X = deque(maxlen=20)
+deque_size = 10
+
+X = deque(maxlen=deque_size)
 X.append(0.5)
 
-Y1 = deque(maxlen=20)
+Y1 = deque(maxlen=deque_size)
 Y1.append(0.5)
 
-Y2 = deque(maxlen=20)
+Y2 = deque(maxlen=deque_size)
 Y2.append(0.5)
+
+update_frequecy = 100
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 app.layout = html.Div([
-
     dcc.Interval(
         id='graph-update',
-        interval=1*1000
+        interval=update_frequecy
     ),
     html.Div([
         html.Div([
             html.H1(children='EAR'),
-
             html.Div(children='''
                 Dash: LIVE EAR.
             '''),
-
             dcc.Graph(
                 id='graph1',
-                figure={} 
+                figure={}
             ),  
         ], className='six columns'),
         html.Div([
             html.H1(children='MAR'),
-
             html.Div(children='''
                 Dash: LIVE MAR.
             '''),
-
             dcc.Graph(
                 id='graph2',
                 figure={}
             ),  
         ], className='six columns'),
     ], className='row'),
+    
+    # Add a placeholder for dynamic text
+    html.Div([
+        html.H2(children="DRIVER'S STATUS:"),
+        html.P(id='dynamic-text'),  # Placeholder for dynamic text
+    ], className='row')
 ])
 
 def update_graph_scatter(n):
@@ -70,7 +76,7 @@ def update_graph_scatter(n):
         try:
             res = ear_mar()
             s, t = res[0], res[1]
-            print(s, t)
+            #print(s, t)
             Y1.append(s)
             Y2.append(t)
             log(str(s) + " " + str(t))
@@ -94,14 +100,21 @@ def update_graph_scatter(n):
     )
 
     return [{'data': [data1], 'layout': go.Layout(xaxis=dict(range=[min(X), max(X)]),
-                                                  yaxis=dict(range=[min(Y1), max(Y1)]))},
+                                                  yaxis=dict(range=[0,1]))},
             {'data': [data2], 'layout': go.Layout(xaxis=dict(range=[min(X), max(X)]),
-                                                  yaxis=dict(range=[min(Y2), max(Y2)]))}]
+                                                  yaxis=dict(range=[0,4]))}]
 
 @app.callback(Output('graph1', 'figure'), Output('graph2', 'figure'), Input('graph-update', 'n_intervals'))
 def update_graph(n):
     figures = update_graph_scatter(n)
     return figures[0], figures[1]
+
+@app.callback(Output('dynamic-text', 'children'), Input('graph-update', 'n_intervals'))
+def update_dynamic_text(n):
+    status = predictor.classify(Y1, Y2, "default")
+    dynamic_text = "NORMAL" if status == 0 else "DROWSY"
+    return dynamic_text
+
 
 if __name__ == '__main__':
     app.run_server(debug=True)

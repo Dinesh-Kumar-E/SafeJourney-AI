@@ -3,22 +3,25 @@ from dash.dependencies import Output, Input
 from dash import dcc
 from dash import html
 import plotly
-import random
+
 import plotly.graph_objs as go
 from collections import deque
-import threading
+
 
 import Face_data
-EAR_values = []
 
 def ear_mar():
         x = Face_data.EAR_MAR()
         return x[0], x[1]
 
 X = deque(maxlen=20)
-X.append(1)
-Y = deque(maxlen=20)
-Y.append(1)
+X.append(0.5)
+
+Y1 = deque(maxlen=20)
+Y1.append(0.5)
+
+Y2 = deque(maxlen=20)
+Y2.append(0.5)
 
 
 app = dash.Dash(__name__)
@@ -34,24 +37,34 @@ app.layout = html.Div(
 
 @app.callback(Output('live-graph', 'figure'),[Input('graph-update', 'n_intervals')])
 def update_graph_scatter(n):
-    global EAR_values
+
     X.append(X[-1]+1)
     while True:
         try:
-            Y.append(ear_mar()[0])
+            res = ear_mar()
+            Y1.append(res[0])
+            Y2.append(res[1])
             break
-        except:
+        except Exception as exception:
+            print(exception)
             continue
 
-    data = plotly.graph_objs.Scatter(
+    data1 = plotly.graph_objs.Scatter(
             x=list(X),
-            y=list(Y),
+            y=list(Y1),
+            name='Scatter',
+            mode= 'lines+markers'
+            )
+    
+    data2 = plotly.graph_objs.Scatter(
+            x=list(X),
+            y=list(Y2),
             name='Scatter',
             mode= 'lines+markers'
             )
 
-    return {'data': [data],'layout' : go.Layout(xaxis=dict(range=[min(X),max(X)]),
-                                                yaxis=dict(range=[min(Y),max(Y)]),)}
+    return {'data': [data1,data2],'layout' : go.Layout(xaxis=dict(range=[min(X),max(X)]),
+                                                yaxis=dict(range=[min(Y2),max(Y2)]),)}
 
 
 if __name__ == '__main__':

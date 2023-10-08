@@ -41,6 +41,7 @@ def EAR_MAR():
             left_eye_landmarks = []
             right_eye_landmarks = []
             mouth_landmarks = []
+            face = []
 
             # Extract landmarks for the left and right eyes
             for i in range(36, 42):  # Left eye landmarks
@@ -51,6 +52,15 @@ def EAR_MAR():
             # Extract landmarks for the mouth
             for i in range(48, 68):  
                 mouth_landmarks.append((shape.part(i).x, shape.part(i).y))
+
+            # Calculating face orientation
+            for i in [22,23,9,1,17]:
+                face.append((shape.part(i).x, shape.part(i).y))
+
+            all = [[],[]]
+            for i in range(0, 68):
+                all[0].append(shape.part(i).x)
+                all[1].append(shape.part(i).y)
 
             left_ear = eye_aspect_ratio(left_eye_landmarks)
             right_ear = eye_aspect_ratio(right_eye_landmarks)
@@ -69,4 +79,4 @@ def EAR_MAR():
         # if cv2.waitKey(1) & 0xFF == ord('q'):
         #     break
             avg_ear = (left_ear+right_ear)/2.0
-            return (avg_ear, mar, frame)
+            return (avg_ear, mar,all,frame)

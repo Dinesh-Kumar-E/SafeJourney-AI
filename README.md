@@ -2,7 +2,9 @@
 SafeJourney-AI is an advanced driver drowsiness detection and road safety enhancement system. Powered by machine learning and deep learning, it analyzes in-car camera feeds in real-time to ensure driver alertness and enhance road safety. 
 
 # Video
-<video width="630" height="300" src="https://files.catbox.moe/z1zbrq.mp4"></video>
+[![Now in Android: 55]          // Title
+(https://i.ytimg.com/vi/Hc79sDi3f0U/maxresdefault.jpg)] // Thumbnail
+(https://youtu.be/rqU9VOm5JgM "SafeJourney-AI")    // Video Link
 
 [Youtube](https://youtu.be/rqU9VOm5JgM)
 [Onedrive](https://1drv.ms/v/s!Ag-zNH1pNyxzhC9r2IZ7_wvzx9SP?e=b5pkgv)

@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 from tensorflow import keras
+import time
 
 # Load the trained model
 model = keras.models.load_model(r"D:\Dinesh-Kumar\Downloads\model.h5")
@@ -19,6 +20,10 @@ cv2.resizeWindow("Real-time Blink Detection", 800, 600)  # Adjust the size as ne
 font = cv2.FONT_HERSHEY_SIMPLEX
 font_scale = 0.5  # Adjust the font scale as needed
 font_thickness = 1
+
+# Initialize variables for FPS calculation
+start_time = time.time()
+frame_count = 0
 
 while True:
     ret, frame = cap.read()  # Read a frame from the camera
@@ -39,6 +44,12 @@ while True:
 
     # Get the corresponding class label
     class_label = class_labels.get(predicted_class, "Unknown")
+
+    # Calculate and display FPS
+    frame_count += 1
+    elapsed_time = time.time() - start_time
+    fps = frame_count / elapsed_time
+    cv2.putText(frame, f"FPS: {fps:.2f}", (5, 60), font, font_scale, (0, 0, 255), font_thickness)
 
     # Display the result on the frame with reduced font size
     cv2.putText(frame, f"Prediction: {class_label}", (5, 30), font, font_scale, (0, 255, 0), font_thickness)

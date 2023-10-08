@@ -1,6 +1,7 @@
 import cv2
 import dlib
 import numpy as np
+import time  # Import the time module
 
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor(r"D:\Dinesh-Kumar\Downloads\shape_predictor_68_face_landmarks.dat")
@@ -14,6 +15,10 @@ def mouth_aspect_ratio(mouth):
     vertical = np.linalg.norm(mouth[2] - mouth[10])
     mar = (horizontal_1 + horizontal_2) / (2.0 * vertical)
     return mar
+
+# Initialize variables for FPS calculation
+start_time = time.time()
+frame_count = 0
 
 while True:
     ret, frame = cap.read()
@@ -38,7 +43,12 @@ while True:
         for (x, y) in mouth_landmarks:
             cv2.circle(frame, (x, y), 2, (0, 0, 255), -1)
 
-        cv2.putText(frame, f'Mouth Aspect Ratio (MAR): {mar:.2f}', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+        # Calculate and display FPS
+        frame_count += 1
+        elapsed_time = time.time() - start_time
+        fps = frame_count / elapsed_time
+        cv2.putText(frame, f'FPS: {fps:.2f}', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+        cv2.putText(frame, f'Mouth Aspect Ratio (MAR): {mar:.2f}', (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 
     cv2.imshow("Live Facial Landmarks", frame)
 

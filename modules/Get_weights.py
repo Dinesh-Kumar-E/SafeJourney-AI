@@ -4,7 +4,7 @@ import requests
 
 def get_url(model):
     data = {
-          "shape_predictor_68_face_landmarks.dat" : r"https://raw.githubusercontent.com/italojs/facial-landmarks-recognition/master/shape_predictor_68_face_landmarks.dat"
+          "shape_predictor_68_face_landmarks.dat" : r"https://files.catbox.moe/84pk4m.dat"
      }
     return data[model]
 

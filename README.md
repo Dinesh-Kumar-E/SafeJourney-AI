@@ -3,10 +3,12 @@ SafeJourney-AI is an advanced driver drowsiness detection and road safety enhanc
 
 # Video
 [Youtube](https://youtu.be/rqU9VOm5JgM)
+  ||  
 [Onedrive](https://1drv.ms/v/s!Ag-zNH1pNyxzhC9r2IZ7_wvzx9SP?e=b5pkgv)
 
 # Presentation
 [Onedrive](https://1drv.ms/p/s!Ag-zNH1pNyxzhDDy4FHPTnzSG2Tc?e=tH0tq5)
+  ||  
 [Google Drive](https://docs.google.com/presentation/d/10vyVEpRxzrKNkHlp8sxCEZ8x6sNLERK6/edit?usp=sharing&ouid=113870251689131757855&rtpof=true&sd=true)
 
 # Install requirements.txt

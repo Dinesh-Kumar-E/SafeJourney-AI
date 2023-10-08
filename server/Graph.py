@@ -6,10 +6,14 @@ from collections import deque
 import pandas as pd
 import plotly.graph_objs as go
 import sys
+import numpy as np
+import threading
+
 sys.path.append("modules")
 import Face_data
 import predictor
-import numpy as np
+import audio
+
 
 def log(content):
     with open("logs\log.txt", "a") as file:
@@ -130,8 +134,12 @@ def update_graph_scatter(n):
 def update_graph(n):
     figures = update_graph_scatter(n)
     status = predictor.classify(Y1, Y2, "default")
+    if (status == 1 and audio_warning):
+        Audio = threading.Thread(target=audio.play_background_sound)
+        Audio.start()
     dynamic_text = "NORMAL" if status == 0 else "DROWSY"
     return figures[0],figures[1],figures[2], dynamic_text
 
 if __name__ == '__main__':
+    audio_warning = True
     app.run_server(debug=True)

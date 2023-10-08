@@ -66,7 +66,7 @@ def EAR_MAR():
             right_ear = eye_aspect_ratio(right_eye_landmarks)
             mar = mouth_aspect_ratio(mouth_landmarks)
 
-            # Draw facial landmarks for the eyes and mouth (optional)
+
             # for (x, y) in left_eye_landmarks + right_eye_landmarks + mouth_landmarks:
             #     cv2.circle(frame, (x, y), 2, (0, 0, 255), -1)
 

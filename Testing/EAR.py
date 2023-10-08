@@ -20,8 +20,9 @@ def eye_aspect_ratio(eye):
 image_path = r"D:\Dinesh-Kumar\Pictures\Camera Roll\WIN_20231007_16_23_12_Pro.jpg"
 image = cv2.imread(image_path)
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+nir_image = cv2.applyColorMap(gray, cv2.COLORMAP_TURBO)
 
-faces = detector(gray)
+faces = detector(nir_image)
 
 for face in faces:
     shape = predictor(gray, face)

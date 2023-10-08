@@ -7,7 +7,7 @@ SafeJourney-AI is an advanced driver drowsiness detection and road safety enhanc
 
 # Presentation
 [Onedrive](https://1drv.ms/p/s!Ag-zNH1pNyxzhDDy4FHPTnzSG2Tc?e=tH0tq5)
-[Drive]()
+[Google Drive](https://docs.google.com/presentation/d/10vyVEpRxzrKNkHlp8sxCEZ8x6sNLERK6/edit?usp=sharing&ouid=113870251689131757855&rtpof=true&sd=true)
 
 # Install requirements.txt
 `pip install requirements.txt`

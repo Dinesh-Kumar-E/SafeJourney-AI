@@ -1,5 +1,6 @@
 {
     "python.analysis.extraPaths": [
         "./modules"
-    ]
+    ],
+    "C_Cpp.errorSquiggles": "disabled"
 }

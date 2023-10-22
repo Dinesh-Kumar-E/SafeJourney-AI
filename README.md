@@ -2,14 +2,16 @@
 SafeJourney-AI is an advanced driver drowsiness detection and road safety enhancement system. Powered by machine learning and deep learning, it analyzes in-car camera feeds in real-time to ensure driver alertness and enhance road safety. 
 
 # Video
-[Youtube](https://youtu.be/rqU9VOm5JgM)
-  ||  
-[Onedrive](https://1drv.ms/v/s!Ag-zNH1pNyxzhC9r2IZ7_wvzx9SP?e=b5pkgv)
+[Youtube](https://youtu.be/5FKmXn9MTQQ)
+
+[Onedrive](https://stdntpartners-my.sharepoint.com/:v:/g/personal/dinesh_kumar_studentambassadors_com/EdgEDcq6DdNBiScm3vcOGlEBgvH64OiAxXl7puXne-VC_w?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&e=fcUYPu)
+
+[Google Drive](https://drive.google.com/file/d/1cP0vGfWmOi_NL_ptoZqzcDKamt0rhwVS/view?usp=sharing)
 
 # Presentation
-[Onedrive](https://1drv.ms/p/s!Ag-zNH1pNyxzhDDy4FHPTnzSG2Tc?e=tH0tq5)
-  ||  
-[Google Drive](https://docs.google.com/presentation/d/10vyVEpRxzrKNkHlp8sxCEZ8x6sNLERK6/edit?usp=sharing&ouid=113870251689131757855&rtpof=true&sd=true)
+[Onedrive](https://stdntpartners-my.sharepoint.com/:p:/g/personal/dinesh_kumar_studentambassadors_com/Ed-vls5UdOBIogcJ9swmmqoBYT1j6xB6z8PGIKFPQCldUA?e=ksVhcx)
+
+[Google Drive](https://docs.google.com/presentation/d/15eY2SczSoloA6F5HdpyJTOM0G5AF-1DT/edit?usp=sharing&ouid=108709310001496954265&rtpof=true&sd=true)
 
 # Install requirements.txt
 `pip install requirements.txt`

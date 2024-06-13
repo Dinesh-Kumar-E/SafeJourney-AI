@@ -39,3 +39,8 @@ Browser Used : *Firefox Version 118.0.1*
 platform : *Windows 11 Version 22H2 ( OS Build 22624.1616 )*
 
 If you experience issues related to the model's predictions, it might be due to the poor quality of the laptop camera or webcam, as they often have less than 1MP and lack low light capturing capabilities. These cameras are suitable for video conferences but may limit the model's performance in image classification tasks. Additionally, this model is specifically designed to work with cameras like [product](https://amzn.eu/d/i6vwRat), which offer better resolution (1080p) and have 5MP with dedicated night mode.
+
+# Sample Result
+![Output Screen 1](Results\Res-1.jpg)
+![Output Screen 2](Results\Res-2.jpg)
+

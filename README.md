@@ -17,12 +17,12 @@ SafeJourney-AI is an advanced driver drowsiness detection and road safety enhanc
 `pip install requirements.txt`
 
 # Required Python Version
-`python>=3.11, <3.12`
+`python == 3.12`
 
 # Additional requirements
 This Project depends on dlib which can be downloaded and installed seperately.
-[Download dlib](https://raw.githubusercontent.com/Murtaza-Saeed/dlib/master/dlib-19.24.1-cp311-cp311-win_amd64.whl)
-Install the downloaded file using : `pip install dlib-19.24.1-cp311-cp311-win_amd64.whl`
+[Download dlib](https://github.com/z-mahmud22/Dlib_Windows_Python3.x/blob/main/dlib-19.24.99-cp312-cp312-win_amd64.whl)
+Install the downloaded file using : `pip install dlib-19.24.99-cp312-cp312-win_amd64.whl`
 [ Note run the pip command on the folder where the file got downloaded ] 
 
 # Running the Model
@@ -34,7 +34,7 @@ Navigate to `http://127.0.0.1:8050/` in any browser of you choice to see the liv
 
 # Debugging and limitations 
 If found any bugs and if you face any issues while setting up the repo. Raise a issue.
-This project was tested on python version *Python 3.11.6* 
+This project was tested on python version *Python 3.12* 
 Browser Used : *Firefox Version 118.0.1*
 platform : *Windows 11 Version 22H2 ( OS Build 22624.1616 )*
 
